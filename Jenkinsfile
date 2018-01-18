@@ -16,9 +16,9 @@ pipeline {
                         sh "export LANGUAGE=en_US.UTF-8"
                         sh "export LC_ALL=en_US.UTF-8"
 
-                        //sh "bundle"
-                        //sh "make app-cal"
-                        //sh "bundle exec cucumber --format json --out 'cucumber/test-results.json' --color"
+                        sh "bundle"
+                        sh "make app-cal"
+                        sh "bundle exec cucumber --tag @Alerts --format json --out 'cucumber/test-results.json' --color"
 						step($class: 'CucumberTestResultArchiver', testResults: 'cucumber/test-results.json')
 						livingDocs(featuresDir:'cucumber')
 						cucumberSlackSend channel: '#il101-ios', json: 'cucumber/test-results.json'
