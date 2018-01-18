@@ -19,7 +19,8 @@ pipeline {
                         sh "make app-cal"
                         sh "bundle exec cucumber --tags @jenkins --format json --out 'cucumber/test-results.json' --color"
 						step($class: 'CucumberTestResultArchiver', testResults: 'cucumber/test-results.json')
-						cucumberSendSlack: channel: '#il101-ios', json: 'cucumber/test-results.json' 
+						cucumberSlackSend channel: '#il101-ios', json: 'cucumber/test-results.json'
+
 						
                     } // dir
                 } // ansiColor
