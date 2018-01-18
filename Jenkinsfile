@@ -1,7 +1,7 @@
 #!groovy
 
 pipeline {
-	agent "MiniServer-Jason"
+	agent any
 
 	stages 
 	{
