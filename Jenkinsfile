@@ -1,7 +1,7 @@
 #!groovy
 
 pipeline {
-	agent any
+	agent "MiniServer-Jason"
 
 	stages 
 	{
@@ -16,7 +16,7 @@ pipeline {
                         sh "export LANGUAGE=en_US.UTF-8"
                         sh "export LC_ALL=en_US.UTF-8"
 
-                        sh "bundle"
+                        //sh "bundle"
                         //sh "make app-cal"
                         //sh "bundle exec cucumber --format json --out 'cucumber/test-results.json' --color"
 						step($class: 'CucumberTestResultArchiver', testResults: 'cucumber/test-results.json')
