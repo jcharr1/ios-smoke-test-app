@@ -11,6 +11,7 @@ pipeline {
        		{
                 ansiColor('xterm') {
                     dir ("CalSmokeApp") {
+                    	sh "hostname"
                         sh "export LANG=en_US.UTF-8"
                         sh "export LANGUAGE=en_US.UTF-8"
                         sh "export LC_ALL=en_US.UTF-8"
