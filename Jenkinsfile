@@ -19,7 +19,8 @@ pipeline {
                         sh "bundle"
                         sh "make app-cal"
                         sh "bundle exec cucumber --format json --out 'cucumber/test-results.json' --color"
-						step($class: 'CucumberTestResultArchiver', testResults: 'cucumber/test-results.json')
+						//step($class: 'CucumberTestResultArchiver', testResults: 'cucumber/test-results.json')
+						livingDocs(featuresDir:'cucumber')
 						cucumberSlackSend channel: '#il101-ios', json: 'cucumber/test-results.json'
 
 						
